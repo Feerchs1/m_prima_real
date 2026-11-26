@@ -1,0 +1,104 @@
+/* Estilos generales de la página */
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f0f4f8; /* Fondo gris azulado muy suave */
+    color: #334155;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px;
+}
+
+/* Contenedor principal del formulario (Tarjeta) */
+form {
+    background-color: #ffffff;
+    padding: 35px 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+    width: 100%;
+    max-width: 420px;
+    box-sizing: border-box;
+    border-top: 5px solid #0284c7; /* Detalle superior en azul corporativo */
+}
+
+/* Estilizar los mensajes de error/alerta de Django */
+form p {
+    background-color: #fef2f2;
+    color: #dc2626 !important; /* Mantiene el rojo legible sobre el fondo */
+    border-left: 4px solid #dc2626;
+    padding: 12px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* Etiquetas (Empresa, Producto, Cantidad) */
+label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1e293b;
+    font-size: 14px;
+}
+
+/* Campos de texto, número y lista desplegable */
+input[type="text"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 15px;
+    color: #334155;
+    background-color: #f8fafc;
+    box-sizing: border-box;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Efecto al hacer clic dentro de un campo */
+input[type="text"]:focus,
+input[type="number"]:focus,
+select:focus {
+    outline: none;
+    border-color: #0284c7;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+/* Ajuste para los saltos de línea (<br>) de tu HTML actual */
+br {
+    display: block;
+    content: "";
+    margin-top: 8px;
+}
+
+/* Botón de Comprar */
+button[type="submit"] {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    background-color: #0284c7;
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+/* Efecto al pasar el mouse por el botón */
+button[type="submit"]:hover {
+    background-color: #0369a1;
+}
+
+/* Efecto al presionar el botón */
+button[type="submit"]:active {
+    transform: scale(0.99);
+}
