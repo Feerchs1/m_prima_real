@@ -4,17 +4,14 @@
 <p><strong>Cantidad:</strong> {{ cantidad }}</p>
 <p><strong>Total a Pagar:</strong> ${{ total }}</p>
 
-<!-- Formulario hacia tu endpoint de Formspree -->
 <form id="formspree-form" action="https://formspree.io/f/xkjjevzj" method="POST">
     <input type="hidden" name="Empresa" value="{{ empresa }}">
     <input type="hidden" name="Producto" value="{{ producto_nombre }}">
     <input type="hidden" name="Cantidad" value="{{ cantidad }}">
     <input type="hidden" name="Total" value="{{ total }}">
-    <button type="submit">Enviar copia al correo</button>
 </form>
 
-<!-- Opcional: Script para que se envíe solo a Formspree al cargar la página -->
 <script>
     // Descomenta la línea de abajo si quieres que se envíe solo sin dar clic al botón:
-    // document.getElementById('formspree-form').submit();
+    document.getElementById('formspree-form').submit();
 </script>

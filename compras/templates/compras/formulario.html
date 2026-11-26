@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang = "es">
+{% load static %}
+
+<head> 
+<meta charset="UTF-8">
+<link rel = "stylesheet" href = "{% static 'compras/styles.css' %}">
+<title> Proveedor de Insumos 'CB131' </title>
+</head>
+
+<body>
 <form method="POST">
     {% csrf_token %}
     {% if messages %}
@@ -8,16 +19,18 @@
     
     <label>Empresa:</label>
     <input type="text" name="empresa" required>
-
+    <br>
     <label>Producto:</label>
     <select name="producto">
         {% for p in productos %}
             <option value="{{ p.id }}">{{ p.nombre }} (${{ p.precio }})</option>
         {% endfor %}
     </select>
-
+    <br>
     <label>Cantidad:</label>
     <input type="number" name="cantidad" min="1" required>
 
     <button type="submit">Comprar</button>
 </form>
+</body>
+</html>
