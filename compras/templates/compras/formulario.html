@@ -10,6 +10,9 @@
 </head>
 
 <body>
+
+<div class="contenedor-uno">
+
 <form method="POST">
     {% csrf_token %}
     {% if messages %}
@@ -22,15 +25,13 @@
     <input type="text" name="empresa" required>
     <br>
     <label>Producto:</label>
-    <select name="producto">
+    <select name="producto" id="select-producto">
         {% for p in productos %}
 
             <option value="{{ p.id }}" data-imagen="{% static 'compras/img/' %}{{ p.imagen }}">    
                 {{ p.nombre }} (${{ p.precio }})
             </option>
-        {% endfor %}
-        
-            <option value="{{ p.id }}">{{ p.nombre }} (${{ p.precio }})</option>
+
         {% endfor %}
     </select>
     <br>
@@ -39,5 +40,30 @@
 
     <button type="submit">Comprar</button>
 </form>
+
+    <div class="imgs">
+
+<img id="vista-imagen" src="" alt="Vista previa del producto">
+    </div>
+</div>
+
+<script>
+        const select = document.getElementById('select-producto');
+        const img = document.getElementById('vista-imagen');
+
+        function actualizarImagen() {
+            const opcion = select.options[select.selectedIndex];
+            if (!opcion) return;
+
+            const rutaFoto = opcion.getAttribute('data-imagen');
+            img.src = rutaFoto;
+        }
+
+        select.addEventListener('change', actualizarImagen);
+        actualizarImagen();
+    </script>
+
+
 </body>
+
 </html>
