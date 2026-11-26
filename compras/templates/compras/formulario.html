@@ -4,24 +4,24 @@
 
 <head> 
 <meta charset="UTF-8">
-<link rel="stylesheet" href="{% static 'compras/styles.css' %}">
+<link rel="stylesheet" href="{% static 'compras/styles.css' %}"> <!-- Esta linea conecta mi archivo css con el html para mostrarlo-->
 <title> Proveedor de Insumos 'CB131' </title>
 
 </head>
 
 <body>
 
-<div class="contenedor-uno">
+<div class="contenedor-uno">   <!-- Divide en un contenedor el apartado de empresa/producto/cantidad-->
 
-<form method="POST">
+<form method="POST"> <!-- Formulario -->
     {% csrf_token %}
-    {% if messages %}
+    {% if messages %} <!-- Condición en caso de superar el stock al comprar-->
         {% for message in messages %}
-            <p style="color: red;">{{ message }}</p>
+            <p style="color: red;">{{ message }}</p>    
         {% endfor %}
     {% endif %}
     
-    <label>Empresa:</label>
+    <label>Empresa:</label>  <!-- Etiquetas de llenado de datos -->
     <input type="text" name="empresa" required>
     <br>
     <label>Producto:</label>
@@ -47,15 +47,15 @@
     </div>
 </div>
 
-<script>
-        const select = document.getElementById('select-producto');
+<script> //Script para actualizar las imagenes dependiendo del producto seleccionado
+        const select = document.getElementById('select-producto');  
         const img = document.getElementById('vista-imagen');
 
         function actualizarImagen() {
             const opcion = select.options[select.selectedIndex];
             if (!opcion) return;
 
-            const rutaFoto = opcion.getAttribute('data-imagen');
+            const rutaFoto = opcion.getAttribute('data-imagen');                
             img.src = rutaFoto;
         }
 
